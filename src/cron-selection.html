@@ -1,0 +1,82 @@
+<style>
+  .cron-select-wrap {
+    display: inline-block;
+  }
+
+  .cron-select-wrap .cron-select {
+    width: 150px;
+    height: 34px;
+    padding: 6px 12px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  }
+
+  .cron-select-wrap select[multiple] {
+    height: 140px;
+  }
+
+  .select-options {
+    display: inline-block;
+  }
+</style>
+<div class="cron-wrap">
+  <span>Every: </span>
+  <div class="cron-select-wrap">
+    <select class="cron-select" [(ngModel)]="selectedBase">
+            <option *ngFor="let item of initialFrequencies" [ngValue]="item.value">{{item.label}}</option>
+        </select>
+  </div>
+
+  <div class="select-options">
+
+    <span *ngIf="selectedBase == 4">on </span>
+    <div *ngIf="selectedBase == 4" class="cron-select-wrap">
+      <select [multiple]="cronJobConfig.multiple" class="cron-select day-value" [(ngModel)]="selectedDay">
+      <option *ngFor="let item of cronDayValues" [ngValue]="item.value">{{item.label}}</option>
+      </select>
+    </div>
+    <span *ngIf="selectedBase >= 5">on the </span>
+    <div *ngIf="selectedBase >= 5" class="cron-select-wrap">
+
+      <select [multiple]="cronJobConfig.multiple" class="cron-select day-of-month-value" [(ngModel)]="selectedDayOfMonth">
+        <option *ngFor="let item of cronNumeral" [ngValue]="item.value">{{item.label}}</option>
+      </select>
+    </div>
+
+
+    <span *ngIf="selectedBase == 6">of </span>
+    <div *ngIf="frequency.base == 6" class="cron-select-wrap">
+      <select [multiple]="cronJobConfig.multiple" class="cron-select month-value" [(ngModel)]="selectedMonth">
+        <option *ngFor="let item of cronMonthName" [ngValue]="item.value">{{item.label}}</option>
+      </select>
+    </div>
+
+    <span *ngIf="selectedBase >= 2">at </span>
+    <div *ngIf="selectedBase >= 3" class="cron-select-wrap">
+      <select [multiple]="cronJobConfig.multiple" class="cron-select hour-value" [(ngModel)]="selectedHour">
+
+        <option *ngFor="let item of hourValues" [ngValue]="item">{{item}}</option>
+      </select>
+    </div>
+    <span *ngIf="selectedBase >= 3"> : </span>
+    <div *ngIf="frequency.base >= 2" class="cron-select-wrap">
+
+      <select [multiple]="cronJobConfig.multiple" class="cron-select minute-value" [(ngModel)]="selectedMinutes">
+        <option *ngFor="let item of minuteValues" [ngValue]="item">{{item}}</option>
+        </select>
+    </div>
+    <span *ngIf="selectedBase == 2"> past the hour</span>
+
+  </div>
+</div>

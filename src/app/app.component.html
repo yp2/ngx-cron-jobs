@@ -1,0 +1,99 @@
+<div class="container my-4">
+  <div class="row">
+    <div class="col text-center">
+      <h3 class="display-4">Demo ngx-cron-jobs</h3>
+      <p class="lead">Custom widget for scheduling task in posix cron and quartz cron expressions.
+        <br>
+        Angular > 2 version of <a href="https://github.com/angular-cron-jobs/angular-cron-jobs">angular-cron-jobs</a>.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <a href="https://github.com/yp2/ngx-cron-jobs"><img src="assets/GitHub-Mark-32px.png"></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <form class="">
+        <div class="form-group">
+          <label> Set frequency (ngModel)</label>
+          <cron-jobs [(ngModel)]="freq" [ngModelOptions]="{standalone: true}" [config]="cronConfig"></cron-jobs>
+        </div>
+        <div class="form-group">
+          <label>Set frequency (ReactiveForm)</label>
+          <cron-jobs [formControl]="freqControl" [config]="cronConfig" [validate]="cronValidate"></cron-jobs>
+          <div [ngClass]="{'d-block': freqControl.errors?.required}" class="invalid-feedback">Field is required</div>
+        </div>
+
+        <div class="form-group">
+          <label>Set frequency no multi choice (reactive form)</label>
+          <cron-jobs [formControl]="freqSingleControl" [config]="cronSingleConfig"
+                     [validate]="cronValidate"></cron-jobs>
+          <div [ngClass]="{'d-block': freqControl.errors?.required}" class="invalid-feedback">Field is required</div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <hr>
+    </div>
+    <div class="col-6">
+      <dl class="row">
+        <dt class="col-7">Value (ngModel):</dt>
+        <dd class="col-5">{{freq ? freq : 'none'}}</dd>
+        <dt class="col-7">Value (ReactiveForm):</dt>
+        <dd class="col-5">{{freqSec ? freqSec : 'none'}}</dd>
+        <dt class="col-7">Value no multi:</dt>
+        <dd class="col-5">{{freqSingle ? freqSingle : 'none'}}</dd>
+        <dt class="col-7">Used Service:</dt>
+        <dd class="col-5">{{cronConfig.quartz ? 'Quartz' : 'Cron' }}</dd>
+        <dt class="col-7">Is Bootstrap 4 template?</dt>
+        <dd class="col-5">{{cronConfig.bootstrap ? 'Yes' : 'No' }}</dd>
+        <dt class="col-7">Add Bootstrap 4 validation classes?</dt>
+        <dd class="col-5">{{cronValidate.validate ? 'Yes' : 'No' }}</dd>
+        <dt class="col-7">Validators on form control</dt>
+        <dd class="col-5">required</dd>
+      </dl>
+    </div>
+    <div class="col-4">
+      <form novalidate>
+        <div class="form-group">
+          <label *ngIf="!cronConfig.quartz">Frequency in cron format</label>
+          <label *ngIf="cronConfig.quartz">Frequency in quartz format</label>
+          <input class="form-control" type="text"
+                 [(ngModel)]="freq" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+          <label *ngIf="!cronConfig.quartz">Frequency in cron format</label>
+          <label *ngIf="cronConfig.quartz">Frequency in quartz format</label>
+          <input class="form-control" type="text"
+                 [(ngModel)]="freqSec" [ngModelOptions]="{standalone: true}" (keyup)="setFormControl()">
+        </div>
+        <div class="form-group">
+          <label *ngIf="!cronConfig.quartz">Frequency in cron format</label>
+          <label *ngIf="cronConfig.quartz">Frequency in quartz format</label>
+          <input class="form-control" type="text"
+                 [(ngModel)]="freqSingle" [ngModelOptions]="{standalone: true}" (keyup)="setFormControl()">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-7 d-flex justify-content-between">
+      <button class="btn" (click)="reset()">Reset</button>
+      <button class="btn" (click)="set()">Set</button>
+      <button class="btn" (click)="toggleService()">Toggle Service</button>
+      <button class="btn" (click)="toggleBootstrap()">Toggle Bootstrap</button>
+      <button class="btn" (click)="toggleValidate()">Toggle Validate</button>
+    </div>
+  </div>
+</div>

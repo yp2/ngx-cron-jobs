@@ -1,4 +1,4 @@
-import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 
 import { CronJobsComponent } from './cron-jobs.component';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -65,7 +65,7 @@ describe('CronJobsComponent', () => {
   let component: CronJobsComponent;
   let posixService: PosixService;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule],
       declarations: [TestReactiveComponent, CronJobsComponent],

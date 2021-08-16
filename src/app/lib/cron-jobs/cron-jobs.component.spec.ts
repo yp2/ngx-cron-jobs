@@ -281,7 +281,7 @@ describe('CronJobsComponent', () => {
     expect(spy).not.toHaveBeenCalled();
   }));
 
-  it('should set corect data for select options', fakeAsync(() => {
+  it('should set correct data for select options', fakeAsync(() => {
     testFixture.detectChanges();
 
     tick();

@@ -129,7 +129,7 @@ export class CronJobsComponent implements OnInit, OnChanges, OnDestroy, ControlV
     if (changes['config']) {
       this.config = this.dataService.getConfig(<CronJobsConfig>changes['config'].currentValue);
       setTimeout(() => {
-        if (!changes['config'].previousValue ||
+        if (!changes['config'].previousValue || !changes['config'].currentValue ||
           changes['config'].previousValue['quartz'] !== changes['config'].currentValue['quartz']) {
           this.daysOfWeekData = this.dataService.getDaysOfWeek(this.config.quartz);
           this.cronJobsForm.patchValue({ daysOfWeek: this.daysOfWeekData[0].value });

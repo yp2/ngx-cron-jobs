@@ -84,7 +84,7 @@
     "karma-jasmine-html-reporter": "^1.5.4",
     "ng-packagr": "^14.2.1",
     "popper.js": "^1.16.1",
-    "postcss": "8.1.0",
+    "postcss": "8.2.13",
     "protractor": "^7.0.0",
     "rxjs": "^7.5.7",
     "rxjs-marbles": "^7.0.1",

@@ -4,7 +4,21 @@ Angular > 2 version of angular-cron-jobs (http://angular-cron-jobs.github.io/ang
 
 ## Installation
 
-To install this library for Angular 5, run:
+### ngx-cron-jobs now supports Angular 14 🥳
+
+To install the latest version
+
+```bash
+$ npm install ngx-cron-jobs  --save
+```
+
+```bash
+$ yarn add ngx-cron-jobs
+```
+
+---
+
+To install this library for Angular <=5, run:
 
 ```bash
 $ npm install ngx-cron-jobs@0.x.x  --save
@@ -42,7 +56,6 @@ where x.x is 4.10. Is should look like this 7.4.10 Line for Angular 6 will have 
 
 ## Consuming your library
 
-
 and then from your Angular `AppModule`:
 
 ```typescript
@@ -77,28 +90,29 @@ Once your library is imported, you can use its components, directives and pipes 
 The component takes an input of `[config]` and `[validate]`
 
 ### Options
+
 Plugin maybe configured by config object to which should be pass in `[config]` input.
 
 List of options:
 
-Option | Type | Description
--------|------|------------
-quartz | boolean (false)| Use quartz syntax rather then cron syntax in control output
-multiple | boolean (false)| Enable multi select in plugin selects
-bootstrap | boolean (true) | Use bootstrap 4 html and css classes to build plugin forms 
-option | object | Additional options
-option.minute | boolean (true) | remove (false) or add minute to plugin select to control user ability to set cron expression.
-option.hour | boolean (true) | remove (false) or add hour to plugin select to control user ability to set cron expression.
-option.day | boolean (true) | remove (false) or add day to plugin select to control user ability to set cron expression.
-option.week | boolean (true) | remove (false) or add week to plugin select to control user ability to set cron expression.
-option.month | boolean (true) | remove (false) or add month to plugin select to control user ability to set cron expression.
-option.year | boolean (true) | remove (false) or add year to plugin select to control user ability to set cron expression.
+| Option        | Type            | Description                                                                                   |
+| ------------- | --------------- | --------------------------------------------------------------------------------------------- |
+| quartz        | boolean (false) | Use quartz syntax rather then cron syntax in control output                                   |
+| multiple      | boolean (false) | Enable multi select in plugin selects                                                         |
+| bootstrap     | boolean (true)  | Use bootstrap 4 html and css classes to build plugin forms                                    |
+| option        | object          | Additional options                                                                            |
+| option.minute | boolean (true)  | remove (false) or add minute to plugin select to control user ability to set cron expression. |
+| option.hour   | boolean (true)  | remove (false) or add hour to plugin select to control user ability to set cron expression.   |
+| option.day    | boolean (true)  | remove (false) or add day to plugin select to control user ability to set cron expression.    |
+| option.week   | boolean (true)  | remove (false) or add week to plugin select to control user ability to set cron expression.   |
+| option.month  | boolean (true)  | remove (false) or add month to plugin select to control user ability to set cron expression.  |
+| option.year   | boolean (true)  | remove (false) or add year to plugin select to control user ability to set cron expression.   |
 
 Additional to this plugin supports validation config (`[validate]` input):
 
-Option | Type | Description
--------|------|------------
-validate | boolean (false)| Add validation classes if controls are invalid.
+| Option   | Type            | Description                                     |
+| -------- | --------------- | ----------------------------------------------- |
+| validate | boolean (false) | Add validation classes if controls are invalid. |
 
 ## License
 
@@ -123,3 +137,5 @@ From angular2-cron-jobs project
 From ngx-cron-jobs project
 
 [Daniel 'yp2' Derezinski](https://github.com/yp2)
+
+[Mads 'madsthom' Smed](https://github.com/madsthom)

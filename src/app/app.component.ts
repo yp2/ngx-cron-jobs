@@ -1,26 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { CronJobsConfig, CronJobsValidationConfig } from './lib/contracts/contracts';
-import { UntypedFormControl, Validators } from '@angular/forms';
-import { validate } from 'codelyzer/walkerFactory/walkerFn';
+import { Component, OnInit } from "@angular/core";
+import {
+  CronJobsConfig,
+  CronJobsValidationConfig,
+} from "./lib/contracts/contracts";
+import { UntypedFormControl, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'cron-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "cron-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements OnInit {
+  freq = "";
+  freqQuartz = "0 20 3 2 3 ?";
+  freqCron = "35 4 4 3 *";
 
-  freq = '';
-  freqQuartz = '0 20 3 2 3 ?';
-  freqCron = '35 4 4 3 *';
+  freqSec = "";
+  freqSecCron = "35 4 4 3 *";
+  freqSecQuartz = "0 20 3 2 3 ?";
 
-  freqSec = '';
-  freqSecCron = '35 4 4 3 *';
-  freqSecQuartz = '0 20 3 2 3 ?';
-
-  freqSingle = '';
-  freqSingleCron = '35 4 4 3 *';
-  freqSingleQuartz = '0 20 3 2 3 ?';
+  freqSingle = "";
+  freqSingleCron = "35 4 4 3 *";
+  freqSingleQuartz = "0 20 3 2 3 ?";
 
   freqControl: UntypedFormControl;
   freqSingleControl: UntypedFormControl;
@@ -28,7 +29,7 @@ export class AppComponent implements OnInit {
   cronConfig: CronJobsConfig = {
     multiple: true,
     quartz: true,
-    bootstrap: true
+    bootstrap: true,
   };
 
   cronSingleConfig: CronJobsConfig = {
@@ -37,29 +38,29 @@ export class AppComponent implements OnInit {
   };
 
   cronValidate: CronJobsValidationConfig = {
-    validate: true
+    validate: true,
   };
 
-  constructor () {}
+  constructor() {}
 
-  ngOnInit () {
+  ngOnInit() {
     this.freqControl = new UntypedFormControl();
     this.freqControl.setValue(this.freqSec);
     this.freqControl.setValidators([Validators.required]);
-    this.freqControl.valueChanges
-      .subscribe(value => this.freqSec = value);
+    this.freqControl.valueChanges.subscribe((value) => (this.freqSec = value));
 
     this.freqSingleControl = new UntypedFormControl();
     this.freqSingleControl.setValue(this.freqSingle);
     this.freqSingleControl.setValidators([Validators.required]);
-    this.freqSingleControl.valueChanges
-      .subscribe(value => this.freqSingle = value);
+    this.freqSingleControl.valueChanges.subscribe(
+      (value) => (this.freqSingle = value)
+    );
   }
 
   reset() {
-    this.freq = '';
-    this.freqSec = '';
-    this.freqSingle = '';
+    this.freq = "";
+    this.freqSec = "";
+    this.freqSingle = "";
     this.setFormControl();
   }
 
@@ -79,22 +80,22 @@ export class AppComponent implements OnInit {
   toggleService() {
     this.cronConfig = {
       ...this.cronConfig,
-      quartz: !this.cronConfig.quartz
+      quartz: !this.cronConfig.quartz,
     };
     this.cronSingleConfig = {
       ...this.cronSingleConfig,
-      quartz: !this.cronSingleConfig.quartz
+      quartz: !this.cronSingleConfig.quartz,
     };
     this.set();
   }
   toggleBootstrap() {
     this.cronConfig = {
       ...this.cronConfig,
-      bootstrap: !this.cronConfig.bootstrap
+      bootstrap: !this.cronConfig.bootstrap,
     };
     this.cronSingleConfig = {
       ...this.cronSingleConfig,
-      bootstrap: !this.cronSingleConfig.bootstrap
+      bootstrap: !this.cronSingleConfig.bootstrap,
     };
   }
 
@@ -108,7 +109,7 @@ export class AppComponent implements OnInit {
   toggleValidate() {
     this.cronValidate = {
       ...this.cronValidate,
-      validate: !this.cronValidate.validate
+      validate: !this.cronValidate.validate,
     };
   }
 }

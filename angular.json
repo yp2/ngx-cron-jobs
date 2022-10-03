@@ -119,7 +119,6 @@
       }
     }
   },
-  "defaultProject": "angular2-cron-jobs",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "cron",

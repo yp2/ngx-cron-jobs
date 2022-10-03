@@ -10,7 +10,7 @@ import {
   OptionType
 } from '../contracts/contracts';
 import { DataService } from '../services/data.service';
-import { ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Subject ,  Observable } from 'rxjs';
 
 
@@ -39,7 +39,7 @@ export class CronJobsComponent implements OnInit, OnChanges, OnDestroy, ControlV
   @Input() config: CronJobsConfig;
   @Input() validate: CronJobsValidationConfig;
   @Input() isValid = true;
-  @Input() formControl: FormControl;
+  @Input() formControl: UntypedFormControl;
 
   public isDisabled = false;
   public baseFrequencyData: Array<CronJobsSelectOption>;
@@ -51,15 +51,15 @@ export class CronJobsComponent implements OnInit, OnChanges, OnDestroy, ControlV
   public minutesData: Array<CronJobsSelectOption> = [];
   public onChange: (cronValue: string) => {};
   public onTouched: () => {};
-  public cronJobsForm: FormGroup;
+  public cronJobsForm: UntypedFormGroup;
 
   private isPatching = false;
-  private unSubscribe = new Subject();
+  private unSubscribe = new Subject<void>();
   private cronService: PosixService;
 
   constructor(private dataService: DataService,
     private injector: Injector,
-    private formBuilder: FormBuilder) {
+    private formBuilder: UntypedFormBuilder) {
 
     this.cronJobsForm = this.formBuilder.group({
       baseFrequency: 0,

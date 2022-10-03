@@ -1,7 +1,7 @@
 import { ComponentFixture, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 
 import { CronJobsComponent } from './cron-jobs.component';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { UntypedFormControl, ReactiveFormsModule } from '@angular/forms';
 import * as fixtures from '../fixture.spec';
 import { Component, DebugElement } from '@angular/core';
 import { PosixService } from '../services/posix.service';
@@ -21,7 +21,7 @@ import createSpy = jasmine.createSpy;
 })
 class TestReactiveComponent {
 
-  freqControl: FormControl;
+  freqControl: UntypedFormControl;
   freqSec = '';
   freqToSet = '';
 
@@ -36,7 +36,7 @@ class TestReactiveComponent {
   };
 
   constructor() {
-    this.freqControl = new FormControl();
+    this.freqControl = new UntypedFormControl();
     this.freqControl.valueChanges
       .subscribe(value => {
         this.freqSec = value;

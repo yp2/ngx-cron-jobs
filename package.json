@@ -1,6 +1,6 @@
 {
   "name": "ngx-cron-jobs",
-  "version": "13.3.11",
+  "version": "14.2.4",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -28,6 +28,10 @@
     {
       "name": "Randall Valenciano Fallas",
       "email": "ravf.226@gmail.com"
+    },
+    {
+      "name": "Mads Smed",
+      "email": "mads.th@hotmail.com"
     }
   ],
   "keywords": [

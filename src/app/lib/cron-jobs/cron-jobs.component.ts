@@ -54,7 +54,7 @@ export class CronJobsComponent implements OnInit, OnChanges, OnDestroy, ControlV
   public cronJobsForm: FormGroup;
 
   private isPatching = false;
-  private unSubscribe = new Subject();
+  private unSubscribe = new Subject<void>();
   private cronService: PosixService;
 
   constructor(private dataService: DataService,

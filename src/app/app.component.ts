@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CronJobsConfig, CronJobsValidationConfig } from './lib/contracts/contracts';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { validate } from 'codelyzer/walkerFactory/walkerFn';
 
 @Component({
@@ -22,8 +22,8 @@ export class AppComponent implements OnInit {
   freqSingleCron = '35 4 4 3 *';
   freqSingleQuartz = '0 20 3 2 3 ?';
 
-  freqControl: FormControl;
-  freqSingleControl: FormControl;
+  freqControl: UntypedFormControl;
+  freqSingleControl: UntypedFormControl;
 
   cronConfig: CronJobsConfig = {
     multiple: true,
@@ -43,13 +43,13 @@ export class AppComponent implements OnInit {
   constructor () {}
 
   ngOnInit () {
-    this.freqControl = new FormControl();
+    this.freqControl = new UntypedFormControl();
     this.freqControl.setValue(this.freqSec);
     this.freqControl.setValidators([Validators.required]);
     this.freqControl.valueChanges
       .subscribe(value => this.freqSec = value);
 
-    this.freqSingleControl = new FormControl();
+    this.freqSingleControl = new UntypedFormControl();
     this.freqSingleControl.setValue(this.freqSingle);
     this.freqSingleControl.setValidators([Validators.required]);
     this.freqSingleControl.valueChanges

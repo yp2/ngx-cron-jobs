@@ -1,20 +1,32 @@
 # ngx-cron-jobs
 
-Angular > 2 version of angular-cron-jobs (http://angular-cron-jobs.github.io/angular-cron-jobs)
+This repository contains an Angular > 2 version of [angular-cron-jobs](http://angular-cron-jobs.github.io/angular-cron-jobs).
 
 ## Installation
 
-### ngx-cron-jobs now supports Angular 14 🥳
+### 🎉 ngx-cron-jobs supports Angular 14 🎉
 
-To install the latest version
+To install the latest version (14.2.4) of ngx-cron-jobs
 
 ```bash
 $ npm install ngx-cron-jobs  --save
 ```
-
+or
 ```bash
 $ yarn add ngx-cron-jobs
 ```
+---
+## This is a hacktoberfest friendly repository 🎃
+
+Here are the following current enhancements
+
+- [X] Upgrade to Angular version 14
+- [ ] UI support for every nth intervals (see https://github.com/yp2/ngx-cron-jobs/issues/54)
+- [ ] Supporting the year field (see https://github.com/yp2/ngx-cron-jobs/issues/32)
+
+Other enhancements are very, very welcome as well!
+
+### - Happy hacking! 🥳
 
 ---
 

@@ -67,7 +67,8 @@ export class CronJobsComponent implements OnInit, OnChanges, OnDestroy, ControlV
       daysOfMonth: '',
       months: '',
       hours: '',
-      minutes: ''
+      minutes: '',
+      nthMinutes: ''
     });
 
     this.config = this.dataService.getConfig();

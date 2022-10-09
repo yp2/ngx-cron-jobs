@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --configuration=development",
     "start:no-sm": "ng serve --source-map=false",
     "build:docs": "ng build --prod --output-path ./docs --base-href /ngx-cron-jobs/",
     "build:prod": "ng build --prod ",

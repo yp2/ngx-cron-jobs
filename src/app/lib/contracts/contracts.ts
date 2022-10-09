@@ -22,6 +22,7 @@ export interface CronJobsFrequency {
   daysOfMonth: Array<number>;
   daysOfWeek: Array<number>;
   months: Array<number>;
+  nthMinutes: Array<number>;
 }
 
 export interface CronJobsSelectOption {

@@ -36,7 +36,8 @@ describe('PosixService', () => {
       hours: [],
       daysOfMonth: [],
       daysOfWeek: [],
-      months: []
+      months: [],
+      nthMinutes: []
     };
 
     expect(service.getDefaultFrequency()).toEqual(expected);
@@ -74,7 +75,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
 
       expect(service.fromCron(expWrongOne)).toEqual(expected);
@@ -88,7 +90,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '* * * * *';
 
@@ -102,7 +105,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '4 * * * *';
 
@@ -116,7 +120,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '4,10 * * * *';
 
@@ -130,7 +135,8 @@ describe('PosixService', () => {
         hours: [2],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '* 2 * * *';
 
@@ -144,7 +150,8 @@ describe('PosixService', () => {
         hours: [2, 14],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '* 2,14 * * *';
 
@@ -158,7 +165,8 @@ describe('PosixService', () => {
         hours: [2, 14],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '10 2,14 * * *';
 
@@ -172,7 +180,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [1],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '* * * * 1';
 
@@ -186,7 +195,8 @@ describe('PosixService', () => {
         hours: [1],
         daysOfMonth: [],
         daysOfWeek: [1],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '10 1 * * 1';
 
@@ -200,7 +210,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [1],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '* * 1 * *';
 
@@ -214,7 +225,8 @@ describe('PosixService', () => {
         hours: [3],
         daysOfMonth: [1],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '23 3 1 * *';
 
@@ -228,7 +240,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: [1]
+        months: [1],
+        nthMinutes: []
       };
       const cronExpression = '* * * 1 *';
 
@@ -242,7 +255,8 @@ describe('PosixService', () => {
         hours: [1],
         daysOfMonth: [12],
         daysOfWeek: [],
-        months: [1]
+        months: [1],
+        nthMinutes: []
       };
       const cronExpression = '10 1 12 1 *';
 
@@ -256,7 +270,8 @@ describe('PosixService', () => {
         hours: [1],
         daysOfMonth: [1],
         daysOfWeek: [1],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '1 1 1 * 1';
 
@@ -277,7 +292,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
 
       expect(service.setCron(frequency)).toEqual('');
@@ -290,7 +306,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '* * * * *';
 
@@ -304,7 +321,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '10 * * * *';
 
@@ -318,7 +336,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '10,14 * * * *';
 
@@ -332,7 +351,8 @@ describe('PosixService', () => {
         hours: [1],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '* 1 * * *';
 
@@ -346,7 +366,8 @@ describe('PosixService', () => {
         hours: [1, 10],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '* 1,10 * * *';
 
@@ -360,7 +381,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [1],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '* * * * 1';
 
@@ -374,7 +396,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [1, 5],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '* * * * 1,5';
 
@@ -388,7 +411,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '* * * * *';
 
@@ -402,7 +426,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [1],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '* * 1 * *';
 
@@ -416,7 +441,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [1, 23],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '* * 1,23 * *';
 
@@ -430,7 +456,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: [3]
+        months: [3],
+        nthMinutes: []
       };
       const expected = '* * * 3 *';
 
@@ -444,7 +471,8 @@ describe('PosixService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: [3, 4]
+        months: [3, 4],
+        nthMinutes: []
       };
       const expected = '* * * 3,4 *';
 
@@ -459,7 +487,8 @@ describe('PosixService', () => {
         hours: [4],
         daysOfMonth: [2],
         daysOfWeek: [],
-        months: [3, 4]
+        months: [3, 4],
+        nthMinutes: []
       };
       const expected = '10 4 2 3,4 *';
 
@@ -474,7 +503,8 @@ describe('PosixService', () => {
         hours: [4],
         daysOfMonth: [2],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '10 4 2 * *';
 

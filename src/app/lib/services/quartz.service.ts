@@ -92,6 +92,10 @@ export class QuartzService extends PosixService {
       if (newValue.baseFrequency === this.baseFrequency.year) {
         cron[4] = newValue.months.length > 0 ? newValue.months.join(',') : '*';
       }
+
+      if (newValue.baseFrequency === this.baseFrequency.minute && newValue.nthMinutes.length && newValue.nthMinutes[0] !== 0) {
+        cron[0] = `*/${newValue.nthMinutes[0]}`;
+      }
     } else {
       return '';
     }

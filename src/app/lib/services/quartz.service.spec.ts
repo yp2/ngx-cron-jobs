@@ -30,7 +30,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
 
       expect(service.fromCron(expWrongOne)).toEqual(expected);
@@ -44,7 +45,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '0 * * * * ?';
 
@@ -58,7 +60,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '0 4 * * * ?';
 
@@ -72,7 +75,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '0 4,10 * * * ?';
 
@@ -86,7 +90,8 @@ describe('QuartzService', () => {
         hours: [2],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '0 * 2 * * ?';
 
@@ -100,7 +105,8 @@ describe('QuartzService', () => {
         hours: [2, 14],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '0 * 2,14 * * ?';
 
@@ -114,7 +120,8 @@ describe('QuartzService', () => {
         hours: [2, 14],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '0 10 2,14 * * ?';
 
@@ -128,7 +135,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [2],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '0 * * ? * 2';
 
@@ -142,7 +150,8 @@ describe('QuartzService', () => {
         hours: [1],
         daysOfMonth: [],
         daysOfWeek: [2],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '0 10 1 ? * 2';
 
@@ -156,7 +165,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [1],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '0 * * 1 * ?';
 
@@ -170,7 +180,8 @@ describe('QuartzService', () => {
         hours: [1],
         daysOfMonth: [1],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '0 23 1 1 * ?';
 
@@ -184,7 +195,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: [1]
+        months: [1],
+        nthMinutes: []
       };
       const cronExpression = '0 * * * 1 ?';
 
@@ -198,7 +210,8 @@ describe('QuartzService', () => {
         hours: [1],
         daysOfMonth: [12],
         daysOfWeek: [],
-        months: [1]
+        months: [1],
+        nthMinutes: []
       };
       const cronExpression = '0 10 1 12 1 ?';
 
@@ -212,7 +225,8 @@ describe('QuartzService', () => {
         hours: [1],
         daysOfMonth: [],
         daysOfWeek: [2],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const cronExpression = '0 1 1 ? * 2';
 
@@ -232,7 +246,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
 
       expect(service.setCron(frequency)).toEqual('');
@@ -245,7 +260,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '0 * * * * ?';
 
@@ -259,7 +275,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '0 10 * * * ?';
 
@@ -272,7 +289,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '0 10,14 * * * ?';
 
@@ -286,7 +304,8 @@ describe('QuartzService', () => {
         hours: [1],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '0 * 1 * * ?';
 
@@ -300,7 +319,8 @@ describe('QuartzService', () => {
         hours: [1, 10],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '0 * 1,10 * * ?';
 
@@ -314,7 +334,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [2],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '0 * * ? * 2';
 
@@ -328,7 +349,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [2, 6],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '0 * * ? * 2,6';
 
@@ -342,7 +364,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '0 * * ? * *';
 
@@ -356,7 +379,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [1],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '0 * * 1 * ?';
 
@@ -370,7 +394,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [1, 23],
         daysOfWeek: [],
-        months: []
+        months: [],
+        nthMinutes: []
       };
       const expected = '0 * * 1,23 * ?';
 
@@ -384,7 +409,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: [3]
+        months: [3],
+        nthMinutes: []
       };
       const expected = '0 * * * 3 ?';
 
@@ -398,7 +424,8 @@ describe('QuartzService', () => {
         hours: [],
         daysOfMonth: [],
         daysOfWeek: [],
-        months: [3, 4]
+        months: [3, 4],
+        nthMinutes: []
       };
       const expected = '0 * * * 3,4 ?';
 
@@ -412,7 +439,8 @@ describe('QuartzService', () => {
         hours: [4],
         daysOfMonth: [2],
         daysOfWeek: [],
-        months: [3, 4]
+        months: [3, 4],
+        nthMinutes: []
       };
       const expected = '0 10 4 2 3,4 ?';
 
@@ -427,7 +455,8 @@ describe('QuartzService', () => {
         hours: [4],
         daysOfMonth: [2],
         daysOfWeek: [],
-        months: [2]
+        months: [2],
+        nthMinutes: []
       };
       const expected = '0 10 4 2 2 ?';
 

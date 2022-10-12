@@ -100,7 +100,7 @@ describe('CronJobsComponent', () => {
   });
 
   it('should create from group on creation', () => {
-    const expected = ['baseFrequency', 'daysOfWeek', 'daysOfMonth', 'months', 'hours', 'minutes'];
+    const expected = ['baseFrequency', 'daysOfWeek', 'daysOfMonth', 'months', 'hours', 'minutes', 'nthMinutes'];
     testFixture.detectChanges();
     expect(Object.keys(component.cronJobsForm.controls)).toEqual(expected);
   });
@@ -251,7 +251,7 @@ describe('CronJobsComponent', () => {
       const spy = spyOn(component, 'onChange').and.callThrough();
       const spyDefaultFreq = spyOn(posixService, 'getDefaultFrequenceWithDefault').and.callThrough();
       const expected = {
-        baseFrequency: 0, daysOfWeek: [0], daysOfMonth: [1], months: [1], hours: [0], minutes: [0]
+        baseFrequency: 0, daysOfWeek: [0], daysOfMonth: [1], months: [1], hours: [0], minutes: [0], nthMinutes: [0]
       };
 
       tick();
@@ -376,7 +376,7 @@ describe('CronJobsComponent', () => {
 
     tick();
     const expected = {
-      baseFrequency: 0, daysOfWeek: [0], daysOfMonth: [1], months: [1], hours: [0], minutes: [0]
+      baseFrequency: 0, daysOfWeek: [0], daysOfMonth: [1], months: [1], hours: [0], minutes: [0], nthMinutes: [0]
     };
 
     const result = posixService.getDefaultFrequenceWithDefault();
@@ -513,7 +513,7 @@ describe('CronJobsComponent', () => {
 
       const result = de.queryAll(By.css('select'));
 
-      expect(result.length).toEqual(1);
+      expect(result.length).toEqual(2);
       expect(result[0].attributes.formControlName).toEqual('baseFrequency');
     }));
 

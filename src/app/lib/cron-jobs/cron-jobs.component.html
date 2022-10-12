@@ -36,6 +36,15 @@
     <option *ngFor="let item of minutesData" [value]="item.value">{{item.label}}</option>
   </select>
   <label class="mx-sm-2" *ngIf="(baseFrequency$ | async) === 2">past the hour</label>
+  <label class="mx-sm-2" *ngIf="(baseFrequency$ | async) === 1">i.e. every</label>
+  <div *ngIf="(baseFrequency$ | async) === 1" class="cron-select-wrap">
+    <select multiple [multiple]="config.multiple" class="cron-select nth-minute-value" (blur)="onBlur()"
+            [ngClass]="{'is-valid': getIsValid(), 'is-invalid': getIsInvalid()}"
+            formControlName="nthMinutes">
+      <option *ngFor="let item of minutesData" [value]="item.value">{{item.value === 0 ? '' : item.value + 'th'}}</option>
+    </select>
+  </div>
+  <label class="mx-sm-2" *ngIf="(baseFrequency$ | async) === 1">minute</label>
 </div>
 <div class="cron-wrap" *ngIf="!config?.bootstrap" [formGroup]="cronJobsForm">
   <span>Every: </span>

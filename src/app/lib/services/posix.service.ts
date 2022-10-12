@@ -25,7 +25,8 @@ export class PosixService {
       hours: [],
       daysOfMonth: [],
       daysOfWeek: [],
-      months: []
+      months: [],
+      nthMinutes: []
     };
     return cronJobsFrequency;
   }
@@ -37,6 +38,7 @@ export class PosixService {
     cronJobsFrequency.months = this.dataService.months[0] ? [this.dataService.months[0].value] : [];
     cronJobsFrequency.hours = this.dataService.hours[0] ? [this.dataService.hours[0].value] : [];
     cronJobsFrequency.minutes = this.dataService.minutes[0] ? [this.dataService.minutes[0].value] : [];
+    cronJobsFrequency.nthMinutes = this.dataService.minutes[0] ? [this.dataService.minutes[0].value] : [];
     return cronJobsFrequency;
   }
 
@@ -121,6 +123,10 @@ export class PosixService {
 
       if (value.baseFrequency === this.baseFrequency.year) {
         cron[3] = value.months.length > 0 ? value.months.join(',') : '*';
+      }
+
+      if (value.baseFrequency === this.baseFrequency.minute && value.nthMinutes.length && value.nthMinutes[0] !== 0) {
+        cron[0] = `*/${value.nthMinutes[0]}`;
       }
     } else {
       return '';

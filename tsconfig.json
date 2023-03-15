@@ -8,12 +8,12 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "strict": false,
-    "target": "ES2020",
+    "target": "ES2022",
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
-      "es2020",
+      "es2022",
       "dom"
     ]
   }

@@ -44,9 +44,6 @@
     "autoprefixer": "^10.4.11"
   },
   "private": false,
-  "peerDependencies": {
-    "core-js": "^3.8.0"
-  },
   "devDependencies": {
     "@angular-devkit/build-angular": "15.2.1",
     "@angular-devkit/core": "15.2.1",

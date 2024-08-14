@@ -4,9 +4,9 @@ This repository contains an Angular > 2 version of [angular-cron-jobs](http://an
 
 ## Installation
 
-### 🎉 ngx-cron-jobs supports Angular 15 🎉
+### 🎉 ngx-cron-jobs supports Angular 18 🎉
 
-To install the latest version (15.2.1) of ngx-cron-jobs
+To install the latest version (18.2.0) of ngx-cron-jobs
 
 ```bash
 $ npm install ngx-cron-jobs  --save

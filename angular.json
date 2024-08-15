@@ -9,16 +9,20 @@
       "projectType": "application",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist",
+            "outputPath": {
+              "base": "dist"
+            },
             "index": "src/index.html",
-            "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "assets": ["src/assets", "src/favicon.ico"],
-            "styles": ["src/styles.css"],
-            "scripts": []
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css"],
+            "scripts": [],
+            "browser": "src/main.ts"
           },
           "configurations": {
             "production": {
@@ -28,8 +32,6 @@
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -39,29 +41,28 @@
             },
             "development": {
               "optimization": false,
-              "sourceMap": true,
-              "vendorChunk": true
+              "sourceMap": true
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular2-cron-jobs:build"
+            "buildTarget": "angular2-cron-jobs:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular2-cron-jobs:build:production"
+              "buildTarget": "angular2-cron-jobs:build:production"
             },
             "development": {
-              "browserTarget": "angular2-cron-jobs:build:development"
+              "buildTarget": "angular2-cron-jobs:build:development"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular2-cron-jobs:build"
+            "buildTarget": "angular2-cron-jobs:build"
           }
         },
         "test": {
@@ -69,7 +70,7 @@
           "options": {
             "main": "src/test.ts",
             "karmaConfig": "./karma.conf.js",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": ["src/styles.css"],
